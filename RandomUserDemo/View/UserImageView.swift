@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct UserImageView: View {
+    var pictureURL: URL
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        AsyncImage(url: pictureURL)
+            .clipShape(Circle())
+            .overlay {
+                Circle().stroke(.black, lineWidth: 3)
+            }
+            .shadow(radius: 7)
     }
 }
 
 #Preview {
-    UserImageView()
+    UserImageView(pictureURL: UserController.demoUser.picture.large)
 }

@@ -39,6 +39,9 @@ class UserController {
 extension UserController {
     static var demoUser = User(
         name: User.Name(title: "Hr.", first: "Ole", last: "Olsen"),
-        picture: User.Picture(large: URL(string: "https://ole.olsen.dk")!, medium: URL(string: "https://ole.olsen.dk")!)
+        picture: User.Picture(
+            large: URL(string: "https://imgix.billedbladet.dk/media/article/ole-olsen.jpg?auto=format,compress&fit=crop&ar=1:1&crop=faces,focalpoint&w=700")!,
+            medium: URL(string: "https://imgix.billedbladet.dk/media/article/ole-olsen.jpg?auto=format,compress&fit=crop&ar=1:1&crop=faces,focalpoint&w=700")!),
+        location: .init(coordinates: .init(latitude: "12.0", longitude: "34.56"))
     )
 }

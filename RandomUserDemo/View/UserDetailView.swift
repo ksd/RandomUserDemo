@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct UserDetailView: View {
+    var user: User
+
+    init(_ user: User) {
+        self.user = user
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            UserMapView(coordinates: user.coordinates!)
+                .frame(height: 300)
+
+            UserImageView(pictureURL: user.picture.large)
+                .offset(y: -110)
+
+            VStack {
+                Text(user.fullName)
+                    .font(.title)
+                Text("Speedwaykører")
+            }
+
+        }
     }
 }
 
 #Preview {
-    UserDetailView()
+    UserDetailView(UserController.demoUser)
 }
